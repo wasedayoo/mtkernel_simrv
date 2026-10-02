@@ -48,7 +48,7 @@ SECTIONS
     } > ram :data
 
     /* SimRV loads the ELF segment directly into RAM, so LMA equals VMA. */
-    __data_org = ADDR(.data);
+    __data_org = __data_start;
 
     .bss (NOLOAD) : {
         . = ALIGN(8);
