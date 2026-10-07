@@ -30,7 +30,7 @@ TMONITOR_SOURCES := \
 	/home/archlab/yfutatsugi/RV32to64/mtkernel-simrv/tm_com.c
 
 # 今回使用するアプリケーション
-APP_SOURCE := ../mtkernel_cfu/kernel/usermain/usermain1.c
+APP_SOURCE := ../mtkernel_cfu/kernel/usermain/usermain_tsk.c
 
 SOURCES := $(KERNEL_SOURCES) $(RISCV_SOURCES) $(TMONITOR_SOURCES) $(APP_SOURCE)
 
@@ -38,7 +38,7 @@ SOURCES := $(KERNEL_SOURCES) $(RISCV_SOURCES) $(TMONITOR_SOURCES) $(APP_SOURCE)
 
 all: build/mtkernel-simrv.elf build/mtkernel-simrv.dump
 
-# micro T-Kernelとusermain1.cをまとめてRV32 ELFへリンクする。
+# micro T-Kernelとusermain*.cをまとめてRV32 ELFへリンクする。
 build/mtkernel-simrv.elf: $(SOURCES) link.ld sysdef_simrv.h
 	mkdir -p build
 	$(GCC) \
